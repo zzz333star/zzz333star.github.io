@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>乐记 - 物品价值记录App</title>
+  <style>
+    body {
+      background: #f5f6fa;
+      font-family: "微软雅黑", "Arial", sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      background: #fff;
+      max-width: 800px;
+      margin: 40px auto;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      padding: 32px 36px 24px 36px;
+    }
+    .title {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #222;
+    }
+    .meta {
+      color: #888;
+      font-size: 0.95rem;
+      margin-bottom: 18px;
+    }
+    .summary {
+      color: #444;
+      font-size: 1.1rem;
+      margin-bottom: 24px;
+    }
+    h2 {
+      font-size: 1.2rem;
+      color: #222;
+      margin-top: 28px;
+      margin-bottom: 12px;
+      font-weight: bold;
+    }
+    ul {
+      margin: 0 0 18px 20px;
+      padding: 0;
+      color: #444;
+      font-size: 1rem;
+    }
+    li {
+      margin-bottom: 6px;
+      line-height: 1.7;
+    }
+    .contact {
+      margin-top: 30px;
+      padding-top: 16px;
+      border-top: 1px solid #eee;
+      color: #444;
+      font-size: 1rem;
+    }
+    .email {
+      color: #1976d2;
+      text-decoration: none;
+      word-break: break-all;
+    }
+    @media (max-width: 600px) {
+      .container {
+        padding: 16px 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="title">乐记 - 物品价值记录App</div>
+    <div class="meta">2025年1月25日 &nbsp;|&nbsp; 项目介绍</div>
+    <div class="summary">
+      开启长期主义，关注买买买之后宝贝们的价值
+    </div>
+    <h2>【多货币原值记录】</h2>
+    <ul>
+      <li>支持同时使用多种货币单位记录物品，人民币/美元/港币/英镑......等</li>
+    </ul>
+    <h2>【自定义皮肤换装】</h2>
+    <ul>
+      <li>治愈色多色皮肤</li>
+      <li>所有皮肤颜色全部免费使用</li>
+      <li>支持自定义上传皮肤</li>
+    </ul>
+    <h2>【多种整理术】</h2>
+    <ul>
+      <li>支持物品分类、打标签</li>
+      <li>支持对物品排序、查找、筛选</li>
+    </ul>
+    <h2>【详细记录】</h2>
+    <ul>
+      <li>支持物品记录添加文字描述</li>
+      <li>支持最多3张的物品图片</li>
+    </ul>
+    <h2>【保护隐私】</h2>
+    <ul>
+      <li>所有信息都将本地存储</li>
+      <li>支持使用“小眼睛”开关隐藏物品价格</li>
+    </ul>
+    <div class="contact">
+      如果您对本应用程序有任何疑问或建议，请随时通过电子邮件与我联系。<br>
+      联络邮箱：<a class="email" href="mailto:yqz99910@gmail.com">yqz99910@gmail.com</a>
+    </div>
+  </div>
+</body>
+</html>
