@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <title>乐记 - 物品价值记录App</title>
+  <title>原生记物 - 物品价值记录App</title>
   <style>
     body {
       background: #f5f6fa;
@@ -108,4 +108,5 @@
     </div>
   </div>
 </body>
+
 </html>
