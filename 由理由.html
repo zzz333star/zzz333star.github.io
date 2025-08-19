@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>决策辅助工具 - 你的理性决策伙伴</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #e6e6e6;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: rgba(25, 25, 35, 0.8);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid #444;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 25px;
+            border-bottom: 2px solid #4cc9f0;
+            position: relative;
+        }
+        
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 30%;
+            right: 30%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #f72585, #4cc9f0, #4361ee, transparent);
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(76, 201, 240, 0.7);
+            margin: 25px 0;
+            letter-spacing: 1px;
+            background: linear-gradient(90deg, #4cc9f0, #f72585);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+        
+        .tagline {
+            font-size: 1.4rem;
+            color: #b8c1ec;
+            margin: 15px 0 30px;
+            text-align: center;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .feature-card {
+            background: rgba(30, 30, 46, 0.7);
+            border-radius: 12px;
+            padding: 25px;
+            border: 1px solid #444;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            border-color: #4cc9f0;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #4361ee, #f72585);
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #4cc9f0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .feature-card h3::before {
+            content: '✦';
+            margin-right: 10px;
+            color: #f72585;
+        }
+        
+        .feature-card p {
+            font-size: 1.1rem;
+            color: #cdd6f4;
+        }
+        
+        .benefits-list {
+            margin: 30px 0 40px;
+            padding-left: 25px;
+        }
+        
+        .benefits-list li {
+            margin-bottom: 15px;
+            font-size: 1.15rem;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .benefits-list li::before {
+            content: '→';
+            color: #f72585;
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-weight: bold;
+        }
+        
+        .highlight {
+            background: rgba(76, 201, 240, 0.1);
+            border-left: 4px solid #4cc9f0;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 40px 0;
+        }
+        
+        .highlight h2 {
+            font-size: 1.8rem;
+            color: #4cc9f0;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .features-columns {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .feature-item {
+            background: rgba(67, 97, 238, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-item:hover {
+            background: rgba(76, 201, 240, 0.2);
+            transform: scale(1.05);
+        }
+        
+        .cta-container {
+            text-align: center;
+            margin: 50px 0 30px;
+        }
+        
+        .cta-button {
+            background: linear-gradient(90deg, #4361ee, #f72585);
+            color: white;
+            border: none;
+            padding: 16px 45px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(247, 37, 133, 0.4);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(247, 37, 133, 0.6);
+            background: linear-gradient(90deg, #f72585, #4361ee);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #8a8a9e;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .tagline {
+                font-size: 1.2rem;
+            }
+            
+            .feature-card {
+                padding: 20px;
+            }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(76, 201, 240, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(76, 201, 240, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(76, 201, 240, 0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>决策辅助工具</h1>
+            <div class="tagline">你的决策好伙伴，每次决定都精心思考！</div>
+        </header>
+        
+        <div class="benefits-list">
+            <ul>
+                <li>纠结周末去哪玩？用它快速比出最佳方案！</li>
+                <li>面对多个工作Offer难取舍？权重评分揭示最优选！</li>
+                <li>购物车塞满不知买哪个？利弊清单帮你理性剁手！</li>
+                <li>人生重大选择（如搬家、深造）？目标导向模式指引方向！</li>
+            </ul>
+        </div>
+        
+        <div class="highlight">
+            <h2>核心功能</h2>
+            <div class="features-grid">
+                <div class="feature-card pulse">
+                    <h3>多种决策模式</h3>
+                    <p>三种决策模式，帮助你捋顺思考方式：yes or no，二选一，多项选择，不同的问题下有不同的决策角度！由理由帮你迅速定位</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>轻松决定</h3>
+                    <p>借助由理由，每个决策都列出理由，每条理由按照重要性打分，最后总和看出你心里的最佳选项</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>数据可视化</h3>
+                    <p>折线图、对比图，你的决定会用多种颜色展示出来，最好的选择用最喜欢的颜色</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="highlight">
+            <h2>功能全面，体验更强~</h2>
+            <div class="features-columns">
+                <div class="feature-item">三种决策模式</div>
+                <div class="feature-item">沉浸深色模式</div>
+                <div class="feature-item">数据统计</div>
+                <div class="feature-item">多彩数据可视化</div>
+                <div class="feature-item">跨平台同步</div>
+                <div class="feature-item">导出决策报告</div>
+            </div>
+            <p style="text-align: center; margin-top: 25px; font-size: 1.1rem; color: #b8c1ec;">
+                ...全面帮你做出理性决策
+            </p>
+        </div>
+        
+        <div class="cta-container">
+            <button class="cta-button">立即开始理性决策</button>
+        </div>
+        
+        <footer>
+            <p>© 2023 决策辅助工具 | 让每次选择都成为前进的动力</p>
+        </footer>
+    </div>
+
+    <script>
+        // 添加简单的交互效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const featureCards = document.querySelectorAll('.feature-card');
+            
+            featureCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.classList.add('pulse');
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.classList.remove('pulse');
+                });
+            });
+            
+            // 按钮点击效果
+            const ctaButton = document.querySelector('.cta-button');
+            ctaButton.addEventListener('click', function() {
+                this.textContent = '开启决策之旅...';
+                this.style.background = 'linear-gradient(90deg, #3a0ca3, #7209b7)';
+                
+                setTimeout(() => {
+                    this.textContent = '立即开始理性决策';
+                    this.style.background = 'linear-gradient(90deg, #4361ee, #f72585)';
+                }, 1500);
+            });
+        });
+    </script>
+</body>
+</html>
